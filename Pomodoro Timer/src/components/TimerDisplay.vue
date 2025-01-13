@@ -1,7 +1,7 @@
 <template>
   <div class="timer-display">
     <h1>{{ String(minutes).padStart(2, '0') }}:{{ String(seconds).padStart(2, '0') }}</h1>
-    <ControlButtons :isRunning="isRunning" @pause="stopTimer" @reset="startTimer" />
+    <ControlButtons :isRunning="isRunning" @pause="pauseTimer" @reset="resetTimer" />
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
       minutes: 0,
       seconds: 0,
       intervalId: 0,
-      isRunning: true,
+      isRunning: false,
     }
   },
   mounted() {
@@ -24,6 +24,7 @@ export default {
   },
   methods: {
     startTimer() {
+      console.log('start', this.isRunning)
       this.intervalId = setInterval(() => {
         if (this.isRunning) {
           this.seconds++
@@ -35,6 +36,7 @@ export default {
       }, 1000)
     },
     stopTimer() {
+      console.log('stop', this.isRunning)
       clearInterval(this.intervalId)
     },
     pauseTimer() {
@@ -54,6 +56,7 @@ export default {
 
 <style scoped>
 .timer-display {
+  margin: 100px;
   display: flex;
   padding: 50px;
   border-radius: 20px;
