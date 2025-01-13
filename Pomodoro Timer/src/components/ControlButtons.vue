@@ -1,7 +1,7 @@
 <template>
   <div class="control-buttons">
-    <button @click="$emit('pause')">Pause</button>
-    <button @click="$emit('reset')">Reset</button>
+    <button class="play-button" @click="$emit('pause')">{{ isRunning ? 'Pause' : 'Play' }}</button>
+    <button class="reset-button" @click="$emit('reset')">Reset</button>
   </div>
 </template>
 
@@ -28,8 +28,32 @@ button {
   border-radius: 5px;
   border: 4px solid aqua;
   font-size: 20px;
-  background-color: #181818;
+  font-weight: bold;
   color: aqua;
   cursor: pointer;
+  background-color: #262626;
+}
+
+.reset-button {
+  border: 4px solid #d89c9e;
+  color: #d89c9e;
+}
+
+.play-button {
+  border: 4px solid rgb(19, 216, 216);
+  color: rgb(19, 216, 216);
+}
+.reset-button:hover {
+  background-color: #181818;
+  border: 4px solid #e44c51;
+  color: #e44c51;
+  scale: 1.05;
+}
+
+.play-button:hover {
+  background-color: #181818;
+  border: 4px solid aqua;
+  color: aqua;
+  scale: 1.05;
 }
 </style>
