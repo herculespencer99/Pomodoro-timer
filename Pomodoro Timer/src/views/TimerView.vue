@@ -4,7 +4,6 @@ import TimerDisplay from '../components/TimerDisplay.vue'
 
 <template>
   <div class="timer">
-    <h1>This is the timer page</h1>
     <TimerDisplay />
   </div>
 </template>
@@ -14,6 +13,14 @@ import TimerDisplay from '../components/TimerDisplay.vue'
   .about {
     min-height: 100vh;
     display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+  }
+  .timer {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
     align-items: center;
   }
 }
